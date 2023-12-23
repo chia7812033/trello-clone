@@ -1,17 +1,21 @@
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
+import { Plus } from "lucide-react";
 
 const Navbar = () => {
   return (
-    <div className="fixed top-0 w-full border-b shadow-sm bg-white flex items-center justify-between h-14">
+    <div className="p-2 fixed top-0 w-full border-b shadow-sm bg-white flex items-center justify-between h-14">
       <div className="flex items-center">
         <Logo />
-        <Button size="sm" className="">
+        <Button size="sm" variant="primary" className="ml-auto hidden md:block">
           Create
         </Button>
+        <Button size="sm" variant="primary" className="ml-auto md:hidden">
+          <Plus className="h-4 w-4"/>
+        </Button>
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center space-x-2">
         <OrganizationSwitcher
           hidePersonal
           afterCreateOrganizationUrl="/organization/:id"
